@@ -1,0 +1,26 @@
+<ion-view view-title="Streams" ng-init="loadLocals()">
+    
+
+        <ion-nav-buttons side="right">
+            <div class="button button-dark ion-trash-b" ng-click="enableDelete()" ng-show="showDeleteButton"></div>
+            <div class="button button-dark ion-android-cancel" ng-click="cancelDelete()" ng-show="!showDeleteButton"></div>
+        </ion-nav-buttons>
+    
+        <ion-content>
+            <ion-refresher pulling-text="Pull to refresh..." on-refresh="loadLocals()"></ion-refresher>
+
+            <ion-list show-delete="shouldShowDelete">
+                <ion-item ng-repeat="local in locals" class="item item-thumbnail-left item-icon-right">
+                    <ion-delete-button class="ion-minus-circled" ng-click="delete($index)"></ion-delete-button>
+                    <img width="20" ng-src="{{stream.iconUrl}}">
+                    <div ng-click="play(stream)">
+                        <h2>{{stream.name}}</h2>
+                        <p>{{stream.description}}</p>
+                        <img ng-src="img/eq.gif" ng-show="stream.name==currentStream.name">
+                    </div>
+
+                    <i ng-click="stop()" ng-show="stream.name==currentStream.name" class="icon ion-stop"></i>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+</ion-view>

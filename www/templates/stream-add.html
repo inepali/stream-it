@@ -1,0 +1,33 @@
+<ion-view view-title='Add New' ng-init="init()">
+      <ion-content>
+
+            <div class="panel panel-default">
+                  <div class="panel-body">
+                        <label class="item item-input">
+          <span class="input-label" floating ng-required="required">Name</span>
+          <input type="text" ng-model="stream.name">
+    </label>
+
+                        <label class="item item-input">
+          <span class="input-label floating">Description</span>
+          <input type="text" ng-model="stream.description">
+    </label>
+
+                        <label class="item item-input">
+          <span class="input-label floating">Stream URL</span>
+          <input type="text" ng-model="stream.url">
+    </label>
+
+                        <label class="item item-input">
+          <span class="input-label floating">Icon URL</span>
+          <input type="text" ng-model="stream.iconUrl">
+    </label>
+
+                        <label class="item">
+          <button type="button" class="button button-block button-dark" ng-click="addNewStream()" ng-disabled="!stream.name || !stream.url">Add</button>
+          
+    </label>
+                  </div>
+            </div>
+      </ion-content>
+</ion-view>
